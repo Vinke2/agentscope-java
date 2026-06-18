@@ -3,5 +3,7 @@ jdk:
 before_install:
   - sdk install maven 3.9.9
   - sdk use maven 3.9.9
+  - sed -i 's|<nodeVersion>v20.19.2</nodeVersion>|<nodeVersion>v16.20.2</nodeVersion>|' agentscope-examples/agents/agentscope-builder/pom.xml
+  - sed -i 's|<npmVersion>10.9.2</npmVersion>|<npmVersion>8.19.4</npmVersion>|' agentscope-examples/agents/agentscope-builder/pom.xml
 install:
-  - mvn clean install -DskipTests -Dspotless.check.skip=true -Drevision=$VERSION -pl agentscope-dependencies-bom,agentscope-core,agentscope-harness,agentscope-extensions,agentscope-distribution --also-make
+  - mvn clean install -DskipTests -Dspotless.check.skip=true -Drevision=$VERSION
