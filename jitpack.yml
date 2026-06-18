@@ -1,0 +1,4 @@
+jdk:
+  - openjdk17
+install:
+  - mvn clean install -DskipTests -Dspotless.check.skip=true -Drevision=$VERSION
