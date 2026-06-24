@@ -845,11 +845,7 @@ public class WorkspaceManager implements AutoCloseable {
         if (filesystem == null) {
             return "";
         }
-        AbstractFilesystem target = filesystem;
-        if (filesystem instanceof OverlayFilesystem overlay) {
-            target = overlay.upper();
-        }
-        ReadResult r = target.read(rc, filePath, 0, 0);
+        ReadResult r = filesystem.read(rc, filePath, 0, 0);
         if (!r.isSuccess() || r.fileData() == null) {
             return "";
         }
